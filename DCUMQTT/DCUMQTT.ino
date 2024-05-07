@@ -34,7 +34,9 @@ const char* BROKER_MQTT = "mqtt.maua.br";
 int BROKER_PORT = 1883;
 WiFiClient espClient;
 PubSubClient MQTT(espClient);
-  
+
+int timestamp = millis();
+
 void wifi(void);
 void verificaConexoes(void);
 
@@ -406,7 +408,7 @@ void ReadVariables(void *pvParameters){
             fields["gps_speed"] = GPS_Speed;
             fields["gear"] = Gear;
             root["name"]="pd01_dcu";
-            root["timestamp"]= 1713288706239;
+            root["timestamp"]= timestamp;
             
             char JSONmessageBuffer[100];
             root.printTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
@@ -438,7 +440,7 @@ void ReadVariables(void *pvParameters){
           fields1["engine_intake_air_temperature"] = Air_Temp_Inlet;
           fields1["engine_ecu_temperature"] = ECU_Temp;
           root1["name"]="pd02_dcu";
-          root1["timestamp"]= 1713288706239;
+          root1["timestamp"]= timestamp;
             
           char JSONmessageBuffer1[100];
           root1.printTo(JSONmessageBuffer1, sizeof(JSONmessageBuffer1));
@@ -469,7 +471,7 @@ void ReadVariables(void *pvParameters){
           fields2["manifold_air_pressure"] = manifold_Pres;
           fields2["fuel_pressure"] = Fuel_Pres;
           root2["name"]="pd03_dcu";
-          root2["timestamp"]= 1713288706239;
+          root2["timestamp"]= timestamp;
             
           char JSONmessageBuffer2[100];
           root2.printTo(JSONmessageBuffer2, sizeof(JSONmessageBuffer2));
@@ -501,7 +503,7 @@ void ReadVariables(void *pvParameters){
           fields3["exhaus_temperature_cylinder_3"] = ETC_3;
           fields3["sdl3_temperature"] = SDL_Temp;
           root3["name"]="pd04_dcu";
-          root3["timestamp"]= 1713288706239;
+          root3["timestamp"]= timestamp;
             
           char JSONmessageBuffer3[100];
           root3.printTo(JSONmessageBuffer3, sizeof(JSONmessageBuffer3));
@@ -532,7 +534,7 @@ void ReadVariables(void *pvParameters){
             fields4["acc_y"] = G_Force_Long;
             fields4["acc_z"] = G_Force_Vert;
             root4["name"]="pd05_dcu";
-            root4["timestamp"]= 1713288706239;
+            root4["timestamp"]= timestamp;
               
             char JSONmessageBuffer4[100];
             root4.printTo(JSONmessageBuffer4, sizeof(JSONmessageBuffer4));
@@ -564,7 +566,7 @@ void ReadVariables(void *pvParameters){
             fields5["beacon"] = Beacon;
             fields5["gps_altitude"] = GPS_Altitude;
             root5["name"]="pd06_dcu";
-            root5["timestamp"]= 1713288706239;
+            root5["timestamp"]= timestamp;
               
             char JSONmessageBuffer5[100];
             root5.printTo(JSONmessageBuffer5, sizeof(JSONmessageBuffer5));
@@ -591,7 +593,7 @@ void ReadVariables(void *pvParameters){
             fields6["gps_latitude"] = GPS_Latitude;
             fields6["gps_longitude"] = GPS_Longitude;
             root6["name"]="pd07_dcu";
-            root6["timestamp"]= 1713288706239;
+            root6["timestamp"]= timestamp;
               
             char JSONmessageBuffer6[100];
             root6.printTo(JSONmessageBuffer6, sizeof(JSONmessageBuffer6));
@@ -618,6 +620,6 @@ void taskUpdateLCD(void *pvParameters) {
     }
 }
 
-void loop(){
-
+void loop(){
+  
 }
